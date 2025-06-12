@@ -124,7 +124,7 @@
 <div class="products">
 
   <div class="product">
-    <h3>Hoodies</h3>
+    <h3>Custom Made Hoodies</h3>
     <p><strong>Price:</strong> $40</p>
     <p>Cozy and stylish.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
@@ -134,7 +134,7 @@
   </div>
 
   <div class="product">
-    <h3>Shirts</h3>
+    <h3>Custom Made Shirts</h3>
     <p><strong>Price:</strong> $25</p>
     <p>Casual wear for everyday use.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
@@ -144,7 +144,7 @@
   </div>
 
   <div class="product">
-    <h3>Long Sleeve Shirts</h3>
+    <h3>Custom Made Long Sleeve Shirts</h3>
     <p><strong>Price:</strong> $30</p>
     <p>Comfortable and versatile.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
@@ -154,7 +154,7 @@
   </div>
 
   <div class="product">
-    <h3>Sweatpants</h3>
+    <h3>Custom Made Sweatpants</h3>
     <p><strong>Price:</strong> $35</p>
     <p>Relaxed fit for everyday comfort.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
@@ -164,7 +164,7 @@
   </div>
 
   <div class="product">
-    <h3>Shorts</h3>
+    <h3>Custom Made Shorts</h3>
     <p><strong>Price:</strong> $20</p>
     <p>Perfect for summer days.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
