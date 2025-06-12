@@ -71,8 +71,8 @@
       transition: transform 0.2s ease;
       border: 1px solid #9b59b6;
       color: #9b59b6;
-      position: relative;
-      overflow: visible; /* allow popup to be visible */
+      position: relative; /* For popup positioning */
+      overflow: visible;  /* Allow popup outside */
     }
 
     .product:hover {
@@ -97,8 +97,6 @@
       font-weight: bold;
       margin-top: 1rem;
       transition: background-color 0.3s ease;
-      position: relative;
-      z-index: 1;
     }
 
     .buy-btn:hover,
@@ -118,10 +116,11 @@
       color: #9b59b6;
       animation: fadeIn 0.3s ease forwards;
       position: absolute;
-      width: 200px;
+      width: 200px; /* Fixed width for centering */
       box-sizing: border-box;
       z-index: 10;
-      /* Removed fixed left and top here to be set dynamically */
+      /* left and top will be set dynamically */
+      transform: translateX(-50%); /* Center horizontally */
     }
 
     @keyframes fadeIn {
@@ -247,16 +246,19 @@
       return;
     }
 
-    // Show popup first to get correct dimensions
+    // Show popup first to get measurements
     popup.style.display = 'block';
 
-    // Calculate position: just below button, horizontally centered
-    const top = button.offsetTop + button.offsetHeight + 2; // 2px gap to raise it higher
-    const left = button.offsetLeft + button.offsetWidth / 2;
+    // Position popup: just below the button with 2px gap
+    const top = button.offsetTop + button.offsetHeight + 2;
+
+    // Horizontally center popup inside product box
+    const left = product.clientWidth / 2;
 
     popup.style.top = top + 'px';
     popup.style.left = left + 'px';
-    popup.style.transform = 'translateX(-50%)';
+
+    // CSS transform: translateX(-50%) handles horizontal centering
   }
 
   // Close popups if clicking outside
