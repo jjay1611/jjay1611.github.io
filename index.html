@@ -9,14 +9,15 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #000; /* Black background */
-      color: #9b59b6; /* Purple text */
+      background: #000;
+      color: #9b59b6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
     header {
+      position: relative;
       background: #000;
       color: #9b59b6;
       text-align: center;
@@ -30,6 +31,16 @@
       margin: 0.2rem 0;
     }
 
+    .header-img {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      height: 60px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
+    }
+
     .products {
       flex-grow: 1;
       display: flex;
@@ -40,11 +51,11 @@
     }
 
     .product {
-      background: #111; /* Very dark background */
+      background: #111;
       border-radius: 12px;
       padding: 1rem;
       width: 260px;
-      box-shadow: 0 5px 15px rgba(155, 89, 182, 0.5); /* purple glow */
+      box-shadow: 0 5px 15px rgba(155, 89, 182, 0.5);
       text-align: center;
       transition: transform 0.2s ease;
       border: 1px solid #9b59b6;
@@ -54,9 +65,7 @@
 
     .product:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(155, 89, 182, 0.8); /* stronger purple glow */
-      border-color: #9b59b6;
-      color: #9b59b6;
+      box-shadow: 0 8px 20px rgba(155, 89, 182, 0.8);
     }
 
     .product h3,
@@ -67,8 +76,8 @@
     }
 
     .buy-btn {
-      background: #9b59b6; /* Purple button */
-      color: #000; /* Black text for contrast */
+      background: #9b59b6;
+      color: #000;
       border: none;
       padding: 0.6rem 1.4rem;
       cursor: pointer;
@@ -80,7 +89,7 @@
 
     .buy-btn:hover,
     .buy-btn:focus {
-      background: #7d3c98; /* Darker purple on hover/focus */
+      background: #7d3c98;
       outline: none;
       box-shadow: 0 0 8px #7d3c98;
     }
@@ -90,7 +99,6 @@
       background: #222;
       border: 2px solid #9b59b6;
       padding: 1rem;
-      /* margin-top: 1rem;  Removed to keep popup closer */
       border-radius: 10px;
       font-weight: bold;
       color: #9b59b6;
@@ -98,7 +106,7 @@
       position: absolute;
       width: calc(100% - 2rem);
       left: 1rem;
-      top: 70%; /* Adjusted to raise popup */
+      top: 70%;
       z-index: 10;
       box-sizing: border-box;
     }
@@ -118,7 +126,6 @@
       user-select: none;
     }
 
-    /* Mobile responsiveness */
     @media (max-width: 600px) {
       .products {
         padding: 1rem;
@@ -129,6 +136,12 @@
         width: 100%;
         max-width: 300px;
       }
+
+      .header-img {
+        position: static;
+        display: block;
+        margin: 0 auto 1rem;
+      }
     }
   </style>
 </head>
@@ -138,6 +151,7 @@
   <h1>JJ Store</h1>
   <p>Affordable streetwear – Pay with Cash App</p>
   <p>My email is <a href="mailto:JJStore1611@gmail.com" style="color:#9b59b6; text-decoration: underline;">JJStore1611@gmail.com</a> if you want to buy something</p>
+  <img src="https://i.postimg.cc/LsCWz4Nt/JJ-Store-logo.png" alt="JJ Store Logo" class="header-img" />
 </header>
 
 <div class="products">
@@ -146,15 +160,8 @@
     <h3>Custom Made Hoodies</h3>
     <p><strong>Price:</strong> $35</p>
     <p>Cozy and stylish.</p>
-    <button
-      class="buy-btn"
-      aria-expanded="false"
-      aria-controls="popup-hoodies"
-      onclick="togglePopup(this)"
-    >
-      Buy Now
-    </button>
-    <div class="buy-popup" id="popup-hoodies" role="region" aria-live="polite" aria-hidden="true">
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
+    <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
     </div>
   </div>
@@ -163,15 +170,8 @@
     <h3>Custom Made Shirts</h3>
     <p><strong>Price:</strong> $20</p>
     <p>Casual wear for everyday use.</p>
-    <button
-      class="buy-btn"
-      aria-expanded="false"
-      aria-controls="popup-shirts"
-      onclick="togglePopup(this)"
-    >
-      Buy Now
-    </button>
-    <div class="buy-popup" id="popup-shirts" role="region" aria-live="polite" aria-hidden="true">
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
+    <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
     </div>
   </div>
@@ -180,15 +180,8 @@
     <h3>Custom Made Long Sleeve Shirts</h3>
     <p><strong>Price:</strong> $25</p>
     <p>Comfortable and versatile.</p>
-    <button
-      class="buy-btn"
-      aria-expanded="false"
-      aria-controls="popup-longsleeve"
-      onclick="togglePopup(this)"
-    >
-      Buy Now
-    </button>
-    <div class="buy-popup" id="popup-longsleeve" role="region" aria-live="polite" aria-hidden="true">
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
+    <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
     </div>
   </div>
@@ -197,15 +190,8 @@
     <h3>Custom Made Sweatpants</h3>
     <p><strong>Price:</strong> $30</p>
     <p>Relaxed fit for everyday comfort.</p>
-    <button
-      class="buy-btn"
-      aria-expanded="false"
-      aria-controls="popup-sweatpants"
-      onclick="togglePopup(this)"
-    >
-      Buy Now
-    </button>
-    <div class="buy-popup" id="popup-sweatpants" role="region" aria-live="polite" aria-hidden="true">
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
+    <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
     </div>
   </div>
@@ -221,52 +207,27 @@
     const popup = button.nextElementSibling;
     const isVisible = popup.style.display === "block";
 
-    // Hide all popups first
     document.querySelectorAll('.buy-popup').forEach(p => {
       p.style.display = 'none';
-      p.setAttribute('aria-hidden', 'true');
-    });
-    document.querySelectorAll('.buy-btn').forEach(btn => {
-      btn.setAttribute('aria-expanded', 'false');
     });
 
-    // Toggle the clicked one
     if (!isVisible) {
       popup.style.display = "block";
-      popup.setAttribute('aria-hidden', 'false');
-      button.setAttribute('aria-expanded', 'true');
-    } else {
-      popup.style.display = "none";
-      popup.setAttribute('aria-hidden', 'true');
-      button.setAttribute('aria-expanded', 'false');
     }
   }
 
-  // Close popups when clicking outside
   document.addEventListener('click', (e) => {
-    const isBuyBtn = e.target.classList.contains('buy-btn');
-    const isPopup = e.target.closest('.buy-popup');
-
-    if (!isBuyBtn && !isPopup) {
+    if (!e.target.classList.contains('buy-btn') && !e.target.closest('.buy-popup')) {
       document.querySelectorAll('.buy-popup').forEach(p => {
         p.style.display = 'none';
-        p.setAttribute('aria-hidden', 'true');
-      });
-      document.querySelectorAll('.buy-btn').forEach(btn => {
-        btn.setAttribute('aria-expanded', 'false');
       });
     }
   });
 
-  // Keyboard accessibility: close popups with Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === "Escape") {
       document.querySelectorAll('.buy-popup').forEach(p => {
         p.style.display = 'none';
-        p.setAttribute('aria-hidden', 'true');
-      });
-      document.querySelectorAll('.buy-btn').forEach(btn => {
-        btn.setAttribute('aria-expanded', 'false');
       });
     }
   });
