@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JJ Store</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="JJ Store – Affordable custom streetwear. Pay with Cash App or PayPal.">
-
-  <!-- Open Graph for Social Sharing -->
-  <meta property="og:title" content="JJ Store">
-  <meta property="og:description" content="Affordable streetwear – Custom hoodies, shirts, and more.">
-  <meta property="og:image" content="https://i.imgur.com/CIJQhue.png">
-  <meta property="og:type" content="website">
-
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -27,29 +18,22 @@
     }
 
     header {
-      position: relative;
-      background: #000;
-      color: #9b59b6;
       text-align: center;
       padding: 1.5rem 1rem;
       border-bottom: 1px solid #9b59b6;
     }
 
-    header h1,
-    header p {
-      color: #9b59b6;
+    header h1, header p {
       margin: 0.2rem 0;
     }
 
     .header-img {
-      position: absolute;
-      top: 1rem;
-      right: 2.5rem;
       height: 100px;
       width: 100px;
       object-fit: cover;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
+      margin-top: 1rem;
     }
 
     main.products {
@@ -68,22 +52,11 @@
       width: 180px;
       box-shadow: 0 5px 15px rgba(155, 89, 182, 0.5);
       text-align: center;
-      transition: transform 0.2s ease;
       border: 1px solid #9b59b6;
-      color: #9b59b6;
-      position: relative; /* For popup positioning */
-      overflow: visible;  /* Allow popup outside */
+      position: relative;
     }
 
-    .product:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(155, 89, 182, 0.8);
-    }
-
-    .product h3,
-    .product p,
-    .product strong {
-      color: inherit;
+    .product h3, .product p, .product strong {
       margin: 0.3rem 0;
     }
 
@@ -96,63 +69,41 @@
       border-radius: 30px;
       font-weight: bold;
       margin-top: 1rem;
-      transition: background-color 0.3s ease;
     }
 
-    .buy-btn:hover,
-    .buy-btn:focus {
+    .buy-btn:hover {
       background: #7d3c98;
-      outline: none;
-      box-shadow: 0 0 8px #7d3c98;
     }
 
+    /* ✅ THIS IS THE IMPORTANT UPDATED CSS */
     .buy-popup {
-      display: none;
+      position: absolute;
+      top: 100%;               /* Right below Buy Now button */
+      left: 50%;               /* Center in product box */
+      transform: translateX(-50%);
       background: #222;
       border: 2px solid #9b59b6;
       padding: 1rem;
       border-radius: 10px;
       font-weight: bold;
       color: #9b59b6;
-      animation: fadeIn 0.3s ease forwards;
-      position: absolute;
-      width: 200px; /* Fixed width for centering */
-      box-sizing: border-box;
       z-index: 10;
-      /* left and top will be set dynamically */
-      transform: translateX(-50%); /* Center horizontally */
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(-10px);}
-      to {opacity: 1; transform: translateY(0);}
+      display: none;
+      width: max-content;
+      max-width: 90%;
     }
 
     footer {
-      background: #000;
-      color: #9b59b6;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
       border-top: 1px solid #9b59b6;
-      user-select: none;
     }
 
     @media (max-width: 600px) {
-      main.products {
-        padding: 1rem;
-        gap: 1rem;
-      }
-
       .product {
         width: 100%;
         max-width: 300px;
-      }
-
-      .header-img {
-        position: static;
-        display: block;
-        margin: 0 auto 1rem;
       }
     }
   </style>
@@ -162,21 +113,20 @@
 <header>
   <h1>JJ Store</h1>
   <p>Affordable streetwear – Pay with Cash App or PayPal</p>
-  <p>My email is <a href="mailto:JJStore1611@gmail.com" style="color:#9b59b6; text-decoration: underline;">JJStore1611@gmail.com</a> if you want to buy something</p>
+  <p>Email: <a href="mailto:JJStore1611@gmail.com" style="color:#9b59b6;">JJStore1611@gmail.com</a></p>
   <img src="https://i.imgur.com/CIJQhue.png" alt="JJ Store Logo" class="header-img" />
 </header>
 
 <main class="products">
 
-  <!-- Product Template -->
   <div class="product">
     <h3>Custom Made Hoodies</h3>
     <p><strong>Price:</strong> $35</p>
     <p>Cozy and stylish.</p>
-    <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for hoodies">Buy Now</button>
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
-      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/35" target="_blank" style="color:#9b59b6;">@jamesjay520</a></p>
+      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/35" target="_blank">@jamesjay520</a></p>
     </div>
   </div>
 
@@ -184,45 +134,14 @@
     <h3>Custom Made Shirts</h3>
     <p><strong>Price:</strong> $20</p>
     <p>Casual wear for everyday use.</p>
-    <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for shirts">Buy Now</button>
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
-      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/20" target="_blank" style="color:#9b59b6;">@jamesjay520</a></p>
+      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/20" target="_blank">@jamesjay520</a></p>
     </div>
   </div>
 
-  <div class="product">
-    <h3>Custom Made Long Sleeve Shirts</h3>
-    <p><strong>Price:</strong> $25</p>
-    <p>Comfortable and versatile.</p>
-    <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for long sleeve shirts">Buy Now</button>
-    <div class="buy-popup">
-      <p><strong>Cash App:</strong> $jamesjay1611</p>
-      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/25" target="_blank" style="color:#9b59b6;">@jamesjay520</a></p>
-    </div>
-  </div>
-
-  <div class="product">
-    <h3>Custom Made Sweatpants</h3>
-    <p><strong>Price:</strong> $30</p>
-    <p>Relaxed fit for everyday comfort.</p>
-    <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for sweatpants">Buy Now</button>
-    <div class="buy-popup">
-      <p><strong>Cash App:</strong> $jamesjay1611</p>
-      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">@jamesjay520</a></p>
-    </div>
-  </div>
-
-  <div class="product">
-    <h3>Custom Made Shorts</h3>
-    <p><strong>Price:</strong> $30</p>
-    <p>Breathable and perfect for warm weather.</p>
-    <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for shorts">Buy Now</button>
-    <div class="buy-popup">
-      <p><strong>Cash App:</strong> $jamesjay1611</p>
-      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">@jamesjay520</a></p>
-    </div>
-  </div>
+  <!-- Add more products here if needed -->
 
 </main>
 
@@ -231,42 +150,23 @@
 </footer>
 
 <script>
-  // Toggle visibility of the buy-popup for the clicked product
   function togglePopup(button) {
     const product = button.closest('.product');
     const popup = product.querySelector('.buy-popup');
 
-    // Hide any other open popups
+    // Hide all others
     document.querySelectorAll('.buy-popup').forEach(p => {
       if (p !== popup) p.style.display = 'none';
     });
 
-    if (popup.style.display === 'block') {
-      popup.style.display = 'none';
-      return;
-    }
-
-    // Show popup first to get measurements
-    popup.style.display = 'block';
-
-    // Position popup: just below the button with 2px gap
-    const top = button.offsetTop + button.offsetHeight + 2;
-
-    // Horizontally center popup inside product box
-    const left = product.clientWidth / 2;
-
-    popup.style.top = top + 'px';
-    popup.style.left = left + 'px';
-
-    // CSS transform: translateX(-50%) handles horizontal centering
+    // Toggle this one
+    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
   }
 
   // Close popups if clicking outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.product')) {
-      document.querySelectorAll('.buy-popup').forEach(p => {
-        p.style.display = 'none';
-      });
+      document.querySelectorAll('.buy-popup').forEach(p => p.style.display = 'none');
     }
   });
 </script>
