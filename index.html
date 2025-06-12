@@ -4,24 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JJ Store</title>
-
-  <!-- Styles -->
   <style>
-    /* Body and general page layout */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #000;           /* Black background */
-      color: #9b59b6;             /* Purple text color */
-      min-height: 100vh;          /* Full viewport height */
+      background: #000;
+      color: #9b59b6;
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;     /* Stack header, main, footer vertically */
+      flex-direction: column;
     }
 
-    /* Header styles */
     header {
-      position: relative;         /* For positioning logo inside */
+      position: relative;
       background: #000;
       color: #9b59b6;
       text-align: center;
@@ -29,109 +25,98 @@
       border-bottom: 1px solid #9b59b6;
     }
 
-    /* Header title and paragraphs spacing */
     header h1,
     header p {
       color: #9b59b6;
       margin: 0.2rem 0;
     }
 
-    /* Store logo in header, positioned top-right */
     .header-img {
       position: absolute;
       top: 1rem;
-      right: 2.5rem;              /* Adjusted to move left a bit */
+      right: 2.5rem;
       height: 100px;
       width: 100px;
-      object-fit: cover;          /* Makes image fill box, keeps aspect ratio */
+      object-fit: cover;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(155, 89, 182, 0.7); /* Purple glow around logo */
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
     }
 
-    /* Container for all product cards */
     .products {
-      flex-grow: 1;               /* Expand to fill available vertical space */
+      flex-grow: 1;
       display: flex;
-      flex-wrap: wrap;            /* Wrap products to next line */
-      justify-content: center;    /* Center horizontally */
+      flex-wrap: wrap;
+      justify-content: center;
       padding: 2rem;
-      gap: 1.8rem;                /* Space between product cards */
+      gap: 1.8rem;
     }
 
-    /* Individual product card styling */
     .product {
-      background: #111;           /* Very dark background */
+      background: #111;
       border-radius: 12px;
-      padding: 0.8rem;            /* Smaller padding to fit more cards */
-      width: 180px;               /* Smaller width for more products per row */
-      box-shadow: 0 5px 15px rgba(155, 89, 182, 0.5); /* Purple glow */
+      padding: 0.8rem;
+      width: 180px;
+      box-shadow: 0 5px 15px rgba(155, 89, 182, 0.5);
       text-align: center;
       transition: transform 0.2s ease;
-      border: 1px solid #9b59b6; /* Purple border */
+      border: 1px solid #9b59b6;
       color: #9b59b6;
-      position: relative;         /* For positioning popup absolutely inside */
+      position: relative;
     }
 
-    /* Hover effect for product cards */
     .product:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(155, 89, 182, 0.8); /* Stronger glow */
+      box-shadow: 0 8px 20px rgba(155, 89, 182, 0.8);
     }
 
-    /* Text elements inside product cards */
     .product h3,
     .product p,
     .product strong {
-      color: inherit;             /* Inherit purple color */
-      margin: 0.3rem 0;           /* Vertical spacing between lines */
+      color: inherit;
+      margin: 0.3rem 0;
     }
 
-    /* Buy Now button styling */
     .buy-btn {
-      background: #9b59b6;        /* Purple button */
-      color: #000;                /* Black text for contrast */
+      background: #9b59b6;
+      color: #000;
       border: none;
       padding: 0.6rem 1.4rem;
       cursor: pointer;
-      border-radius: 30px;        /* Rounded pill shape */
+      border-radius: 30px;
       font-weight: bold;
       margin-top: 1rem;
       transition: background-color 0.3s ease;
     }
 
-    /* Hover and focus styles for Buy Now button */
     .buy-btn:hover,
     .buy-btn:focus {
-      background: #7d3c98;        /* Darker purple */
+      background: #7d3c98;
       outline: none;
       box-shadow: 0 0 8px #7d3c98;
     }
 
-    /* Popup box shown when Buy Now clicked */
     .buy-popup {
-      display: none;              /* Hidden by default */
+      display: none;
       background: #222;
       border: 2px solid #9b59b6;
       padding: 1rem;
       border-radius: 10px;
       font-weight: bold;
       color: #9b59b6;
-      animation: fadeIn 0.3s ease forwards;  /* Fade-in animation */
-      position: absolute;         /* Positioned relative to product card */
-      width: calc(100% - 2rem);  /* Slightly narrower than product width */
-      left: 1rem;                /* Center horizontally inside product */
-      top: 70%;                  /* Positioned below button */
-      z-index: 10;               /* On top of other elements */
+      animation: fadeIn 0.3s ease forwards;
+      position: absolute;
+      width: calc(100% - 2rem);
+      left: 1rem;
+      top: 70%;
+      z-index: 10;
       box-sizing: border-box;
     }
 
-    /* Fade-in keyframes for popup */
     @keyframes fadeIn {
       from {opacity: 0; transform: translateY(-10px);}
       to {opacity: 1; transform: translateY(0);}
     }
 
-    /* Footer styling */
     footer {
       background: #000;
       color: #9b59b6;
@@ -139,10 +124,9 @@
       padding: 1rem;
       font-size: 0.9rem;
       border-top: 1px solid #9b59b6;
-      user-select: none;          /* Prevent text selection */
+      user-select: none;
     }
 
-    /* Responsive adjustments for smaller screens */
     @media (max-width: 600px) {
       .products {
         padding: 1rem;
@@ -150,46 +134,40 @@
       }
 
       .product {
-        width: 100%;              /* Full width on small screens */
+        width: 100%;
         max-width: 300px;
       }
 
       .header-img {
-        position: static;         /* Position normally in flow */
+        position: static;
         display: block;
-        margin: 0 auto 1rem;     /* Center above header text */
+        margin: 0 auto 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- Header with store title, subtitle, contact email and logo -->
 <header>
   <h1>JJ Store</h1>
-  <p>Affordable streetwear – Pay with Cash App</p>
+  <p>Affordable streetwear – Pay with Cash App or PayPal</p>
   <p>My email is <a href="mailto:JJStore1611@gmail.com" style="color:#9b59b6; text-decoration: underline;">JJStore1611@gmail.com</a> if you want to buy something</p>
-  
-  <!-- Store logo positioned top right -->
   <img src="https://i.imgur.com/CIJQhue.png" alt="JJ Store Logo" class="header-img" />
 </header>
 
-<!-- Products container -->
 <div class="products">
 
-  <!-- Product 1: Hoodies -->
   <div class="product">
     <h3>Custom Made Hoodies</h3>
     <p><strong>Price:</strong> $35</p>
     <p>Cozy and stylish.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-    <!-- Popup for Cash App info -->
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
+      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/35" target="_blank" style="color:#9b59b6;">paypal.me/jamesjay710</a></p>
     </div>
   </div>
 
-  <!-- Product 2: Shirts -->
   <div class="product">
     <h3>Custom Made Shirts</h3>
     <p><strong>Price:</strong> $20</p>
@@ -197,10 +175,10 @@
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
+      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/20" target="_blank" style="color:#9b59b6;">paypal.me/jamesjay710</a></p>
     </div>
   </div>
 
-  <!-- Product 3: Long Sleeve Shirts -->
   <div class="product">
     <h3>Custom Made Long Sleeve Shirts</h3>
     <p><strong>Price:</strong> $25</p>
@@ -208,10 +186,10 @@
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
+      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/25" target="_blank" style="color:#9b59b6;">paypal.me/jamesjay710</a></p>
     </div>
   </div>
 
-  <!-- Product 4: Sweatpants -->
   <div class="product">
     <h3>Custom Made Sweatpants</h3>
     <p><strong>Price:</strong> $30</p>
@@ -219,10 +197,10 @@
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
+      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">paypal.me/jamesjay710</a></p>
     </div>
   </div>
 
-  <!-- Product 5: Shorts with updated price $30 -->
   <div class="product">
     <h3>Custom Made Shorts</h3>
     <p><strong>Price:</strong> $30</p>
@@ -230,17 +208,16 @@
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
+      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">paypal.me/jamesjay710</a></p>
     </div>
   </div>
 
 </div>
 
-<!-- Footer with copyright -->
 <footer>
   &copy; 2025 JJ Store. All rights reserved.
 </footer>
 
-<!-- JavaScript to toggle popup visibility -->
 <script>
   function togglePopup(button) {
     const popup = button.nextElementSibling;
