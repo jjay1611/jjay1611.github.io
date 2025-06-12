@@ -81,9 +81,9 @@
 </header>
 
 <div class="products">
-  <!-- Product Template -->
   <div class="product">
     <h3>Hoodies</h3>
+    <p><strong>Price:</strong> $30</p>
     <p>Cozy and stylish.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
@@ -94,6 +94,7 @@
 
   <div class="product">
     <h3>Shirts</h3>
+    <p><strong>Price:</strong> $15</p>
     <p>Casual wear for everyday use.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
@@ -104,6 +105,7 @@
 
   <div class="product">
     <h3>Long Sleeve Shirts</h3>
+    <p><strong>Price:</strong> $15</p>
     <p>Comfortable and versatile.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
@@ -114,6 +116,7 @@
 
   <div class="product">
     <h3>Sweatpants</h3>
+    <p><strong>Price:</strong> $30</p>
     <p>Relaxed fit for everyday comfort.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
@@ -124,6 +127,7 @@
 
   <div class="product">
     <h3>Shorts</h3>
+    <p><strong>Price:</strong> $20</p>
     <p>Perfect for summer days.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
@@ -134,7 +138,8 @@
 
   <div class="product">
     <h3>Shoes</h3>
-    <p>Fresh kicks for any occasion.</p>
+    <p><strong>Price:</strong> $150</p>
+    <p>Any shoes you want.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
@@ -156,3 +161,4 @@
 
 </body>
 </html>
+
