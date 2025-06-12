@@ -9,24 +9,24 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #fff;
-      color: #000;
+      background: #000; /* Black background */
+      color: #9b59b6; /* Purple text */
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
     header {
-      background: #fff;
-      color: #000;
+      background: #000;
+      color: #9b59b6;
       text-align: center;
       padding: 1.5rem 1rem;
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid #9b59b6;
     }
 
     header h1,
     header p {
-      color: #000;
+      color: #9b59b6;
     }
 
     .products {
@@ -39,30 +39,32 @@
     }
 
     .product {
-      background: #fff;
+      background: #111; /* Very dark background */
       border-radius: 12px;
       padding: 1rem;
       width: 260px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(155, 89, 182, 0.5); /* purple glow */
       text-align: center;
       transition: transform 0.2s ease;
-      border: 1px solid #000;
-      color: #000;
+      border: 1px solid #9b59b6;
+      color: #9b59b6;
     }
 
     .product:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 20px rgba(233, 30, 99, 0.7); /* pink glow */
+      border-color: #e91e63;
+      color: #e91e63;
     }
 
     .product h3,
     .product p,
     .product strong {
-      color: #000;
+      color: inherit;
     }
 
     .buy-btn {
-      background: #000;
+      background: #e91e63; /* Pink button */
       color: #fff;
       border: none;
       padding: 0.6rem 1.4rem;
@@ -74,27 +76,27 @@
     }
 
     .buy-btn:hover {
-      background: #333;
+      background: #c2185b; /* Darker pink on hover */
     }
 
     .buy-popup {
       display: none;
-      background: #f9f9f9;
-      border: 2px solid #000;
+      background: #222;
+      border: 2px solid #e91e63;
       padding: 1rem;
       margin-top: 1rem;
       border-radius: 10px;
       font-weight: bold;
-      color: #000;
+      color: #e91e63;
     }
 
     footer {
-      background: #fff;
-      color: #000;
+      background: #000;
+      color: #9b59b6;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      border-top: 1px solid #000;
+      border-top: 1px solid #9b59b6;
       user-select: none;
     }
   </style>
