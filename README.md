@@ -3,181 +3,170 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JJ Store</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #fff6f0;
-      color: #330a00;
       margin: 0;
       padding: 0;
+      background: #f5f5f5;
     }
+
     header {
-      background-color: #e94e1b; /* bright orange/red from logo */
-      color: white;
-      padding: 20px;
+      background: #111;
+      color: #fff;
       text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
+      padding: 1rem 0;
     }
-    header img {
-      height: 50px;
-      width: auto;
-    }
-    header h1 {
+
+    h1 {
       margin: 0;
-      font-size: 2em;
-      font-weight: 700;
-      text-shadow: 1px 1px 2px #330a00;
     }
-    .container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 1.5rem;
     }
+
     .product {
       background: #fff;
-      border: 2px solid #e94e1b;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 3px 3px 8px rgba(233, 78, 27, 0.4);
+      border-radius: 8px;
+      padding: 1rem;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
-      transition: transform 0.2s ease;
     }
-    .product:hover {
-      transform: scale(1.05);
-      box-shadow: 5px 5px 15px rgba(233, 78, 27, 0.6);
-    }
+
     .product img {
-      max-width: 100%;
-      height: 160px;
+      width: 100%;
+      height: 200px;
       object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 12px;
+      border-radius: 6px;
     }
+
     .product h3 {
-      margin: 10px 0 6px;
-      color: #b73200;
+      margin: 0.5rem 0;
     }
-    .product p {
-      margin: 6px 0;
-      color: #552100;
-    }
+
     .buy-btn {
-      background-color: #e94e1b;
-      border: none;
+      background: #222;
       color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
+      border: none;
+      padding: 0.5rem 1rem;
       cursor: pointer;
-      font-size: 1em;
-      transition: background-color 0.3s ease;
+      border-radius: 5px;
+      margin-top: 1rem;
     }
-    .buy-btn:hover {
-      background-color: #b73200;
-    }
+
     .buy-popup {
       display: none;
-      margin-top: 10px;
-      background: #ffefde;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #e94e1b;
-      color: #b73200;
-      font-weight: bold;
+      background: #fff;
+      border: 2px solid #ccc;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: #fff;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://i.imgur.com/PlwHCu0.png" alt="JJ Store Logo" />
-    <h1>JJ Store</h1>
-  </header>
 
-  <div class="container">
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1520975693417-c1b21ff9a28a?auto=format&fit=crop&w=600&q=80" alt="Hoodie" />
-      <h3>Hoodies</h3>
-      <p><strong>Price:</strong> $40</p>
-      <p>Cozy and stylish.</p>
-      <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-      <div class="buy-popup">
-        <p><strong>Cash App:</strong> $jamesjay1611</p>
-      </div>
-    </div>
+<header>
+  <h1>JJ Store</h1>
+  <p>Affordable streetwear – Pay with Cash App</p>
+</header>
 
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1520975701442-7a51f3c32053?auto=format&fit=crop&w=600&q=80" alt="Shirt" />
-      <h3>Shirts</h3>
-      <p><strong>Price:</strong> $25</p>
-      <p>Casual wear for everyday use.</p>
-      <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-      <div class="buy-popup">
-        <p><strong>Cash App:</strong> $jamesjay1611</p>
-      </div>
-    </div>
+<div class="products">
 
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1520975709831-f57d44bd36ec?auto=format&fit=crop&w=600&q=80" alt="Long Sleeve Shirt" />
-      <h3>Long Sleeve Shirts</h3>
-      <p><strong>Price:</strong> $30</p>
-      <p>Comfortable and versatile.</p>
-      <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-      <div class="buy-popup">
-        <p><strong>Cash App:</strong> $jamesjay1611</p>
-      </div>
-    </div>
-
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1600185365670-b153d8ed35b6?auto=format&fit=crop&w=600&q=80" alt="Sweatpants" />
-      <h3>Sweatpants</h3>
-      <p><strong>Price:</strong> $35</p>
-      <p>Relaxed fit for everyday comfort.</p>
-      <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-      <div class="buy-popup">
-        <p><strong>Cash App:</strong> $jamesjay1611</p>
-      </div>
-    </div>
-
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80" alt="Shorts" />
-      <h3>Shorts</h3>
-      <p><strong>Price:</strong> $20</p>
-      <p>Perfect for summer days.</p>
-      <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-      <div class="buy-popup">
-        <p><strong>Cash App:</strong> $jamesjay1611</p>
-      </div>
-    </div>
-
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80" alt="Shoes" />
-      <h3>Shoes</h3>
-      <p><strong>Price:</strong> $50</p>
-      <p>Fresh kicks for any occasion.</p>
-      <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-      <div class="buy-popup">
-        <p><strong>Cash App:</strong> $jamesjay1611</p>
-      </div>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1618354691084-d7090f785b05?fit=crop&w=600&q=80" alt="Hoodie">
+    <h3>Hoodies</h3>
+    <p><strong>Price:</strong> $40</p>
+    <p>Cozy and stylish.</p>
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
+    <div class="buy-popup">
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
     </div>
   </div>
 
-  <script>
-    function togglePopup(button) {
-      const popup = button.nextElementSibling;
-      if (popup.style.display === "block") {
-        popup.style.display = "none";
-      } else {
-        popup.style.display = "block";
-      }
-    }
-  </script>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1618354691193-3c9b48e75c3e?fit=crop&w=600&q=80" alt="Shirt">
+    <h3>Shirts</h3>
+    <p><strong>Price:</strong> $25</p>
+    <p>Casual wear for everyday use.</p>
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
+    <div class="buy-popup">
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1586118106073-75a99c1c4c9c?fit=crop&w=600&q=80" alt="Long Sleeve">
+    <h3>Long Sleeve Shirts</h3>
+    <p><strong>Price:</strong> $30</p>
+    <p>Comfortable and versatile.</p>
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
+    <div class="buy-popup">
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1620799140400-9cbbf5cf5bcf?fit=crop&w=600&q=80" alt="Sweatpants">
+    <h3>Sweatpants</h3>
+    <p><strong>Price:</strong> $35</p>
+    <p>Relaxed fit for everyday comfort.</p>
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
+    <div class="buy-popup">
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1598032898502-6d22d2a3e582?fit=crop&w=600&q=80" alt="Shorts">
+    <h3>Shorts</h3>
+    <p><strong>Price:</strong> $20</p>
+    <p>Perfect for summer days.</p>
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
+    <div class="buy-popup">
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?fit=crop&w=600&q=80" alt="Shoes">
+    <h3>Shoes</h3>
+    <p><strong>Price:</strong> $50</p>
+    <p>Fresh kicks for any occasion.</p>
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
+    <div class="buy-popup">
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 JJ Store. All rights reserved.
+</footer>
+
+<script>
+  function togglePopup(button) {
+    const popup = button.nextElementSibling;
+    popup.style.display = popup.style.display === "block" ? "none" : "block";
+  }
+</script>
+
 </body>
 </html>
-
