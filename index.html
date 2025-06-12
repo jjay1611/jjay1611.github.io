@@ -27,6 +27,7 @@
     header h1,
     header p {
       color: #9b59b6;
+      margin: 0.2rem 0;
     }
 
     .products {
@@ -48,6 +49,7 @@
       transition: transform 0.2s ease;
       border: 1px solid #9b59b6;
       color: #9b59b6;
+      position: relative;
     }
 
     .product:hover {
@@ -61,6 +63,7 @@
     .product p,
     .product strong {
       color: inherit;
+      margin: 0.3rem 0;
     }
 
     .buy-btn {
@@ -75,8 +78,11 @@
       transition: background-color 0.3s ease;
     }
 
-    .buy-btn:hover {
-      background: #7d3c98; /* Darker purple on hover */
+    .buy-btn:hover,
+    .buy-btn:focus {
+      background: #7d3c98; /* Darker purple on hover/focus */
+      outline: none;
+      box-shadow: 0 0 8px #7d3c98;
     }
 
     .buy-popup {
@@ -88,6 +94,18 @@
       border-radius: 10px;
       font-weight: bold;
       color: #9b59b6;
+      animation: fadeIn 0.3s ease forwards;
+      position: absolute;
+      width: calc(100% - 2rem);
+      left: 1rem;
+      top: 100%;
+      z-index: 10;
+      box-sizing: border-box;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
     footer {
@@ -99,6 +117,19 @@
       border-top: 1px solid #9b59b6;
       user-select: none;
     }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      .products {
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      .product {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -106,7 +137,7 @@
 <header>
   <h1>JJ Store</h1>
   <p>Affordable streetwear – Pay with Cash App</p>
-  <p>My email is JJStore1611@gmail.com if you want to buy something</p>
+  <p>My email is <a href="mailto:JJStore1611@gmail.com" style="color:#9b59b6; text-decoration: underline;">JJStore1611@gmail.com</a> if you want to buy something</p>
 </header>
 
 <div class="products">
@@ -115,8 +146,15 @@
     <h3>Custom Made Hoodies</h3>
     <p><strong>Price:</strong> $35</p>
     <p>Cozy and stylish.</p>
-    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-    <div class="buy-popup">
+    <button
+      class="buy-btn"
+      aria-expanded="false"
+      aria-controls="popup-hoodies"
+      onclick="togglePopup(this)"
+    >
+      Buy Now
+    </button>
+    <div class="buy-popup" id="popup-hoodies" role="region" aria-live="polite" aria-hidden="true">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
     </div>
   </div>
@@ -125,8 +163,15 @@
     <h3>Custom Made Shirts</h3>
     <p><strong>Price:</strong> $20</p>
     <p>Casual wear for everyday use.</p>
-    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-    <div class="buy-popup">
+    <button
+      class="buy-btn"
+      aria-expanded="false"
+      aria-controls="popup-shirts"
+      onclick="togglePopup(this)"
+    >
+      Buy Now
+    </button>
+    <div class="buy-popup" id="popup-shirts" role="region" aria-live="polite" aria-hidden="true">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
     </div>
   </div>
@@ -135,8 +180,15 @@
     <h3>Custom Made Long Sleeve Shirts</h3>
     <p><strong>Price:</strong> $25</p>
     <p>Comfortable and versatile.</p>
-    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-    <div class="buy-popup">
+    <button
+      class="buy-btn"
+      aria-expanded="false"
+      aria-controls="popup-longsleeve"
+      onclick="togglePopup(this)"
+    >
+      Buy Now
+    </button>
+    <div class="buy-popup" id="popup-longsleeve" role="region" aria-live="polite" aria-hidden="true">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
     </div>
   </div>
@@ -145,8 +197,15 @@
     <h3>Custom Made Sweatpants</h3>
     <p><strong>Price:</strong> $30</p>
     <p>Relaxed fit for everyday comfort.</p>
-    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-    <div class="buy-popup">
+    <button
+      class="buy-btn"
+      aria-expanded="false"
+      aria-controls="popup-sweatpants"
+      onclick="togglePopup(this)"
+    >
+      Buy Now
+    </button>
+    <div class="buy-popup" id="popup-sweatpants" role="region" aria-live="polite" aria-hidden="true">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
     </div>
   </div>
@@ -160,9 +219,59 @@
 <script>
   function togglePopup(button) {
     const popup = button.nextElementSibling;
-    popup.style.display = popup.style.display === "block" ? "none" : "block";
+    const isVisible = popup.style.display === "block";
+
+    // Hide all popups first
+    document.querySelectorAll('.buy-popup').forEach(p => {
+      p.style.display = 'none';
+      p.setAttribute('aria-hidden', 'true');
+    });
+    document.querySelectorAll('.buy-btn').forEach(btn => {
+      btn.setAttribute('aria-expanded', 'false');
+    });
+
+    // Toggle the clicked one
+    if (!isVisible) {
+      popup.style.display = "block";
+      popup.setAttribute('aria-hidden', 'false');
+      button.setAttribute('aria-expanded', 'true');
+    } else {
+      popup.style.display = "none";
+      popup.setAttribute('aria-hidden', 'true');
+      button.setAttribute('aria-expanded', 'false');
+    }
   }
+
+  // Close popups when clicking outside
+  document.addEventListener('click', (e) => {
+    const isBuyBtn = e.target.classList.contains('buy-btn');
+    const isPopup = e.target.closest('.buy-popup');
+
+    if (!isBuyBtn && !isPopup) {
+      document.querySelectorAll('.buy-popup').forEach(p => {
+        p.style.display = 'none';
+        p.setAttribute('aria-hidden', 'true');
+      });
+      document.querySelectorAll('.buy-btn').forEach(btn => {
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+
+  // Keyboard accessibility: close popups with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll('.buy-popup').forEach(p => {
+        p.style.display = 'none';
+        p.setAttribute('aria-hidden', 'true');
+      });
+      document.querySelectorAll('.buy-btn').forEach(btn => {
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
 </script>
 
 </body>
 </html>
+
