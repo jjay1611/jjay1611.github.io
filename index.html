@@ -71,8 +71,8 @@
       transition: transform 0.2s ease;
       border: 1px solid #9b59b6;
       color: #9b59b6;
-      position: relative;
-      overflow: hidden;
+      position: relative; /* Important for absolute popup */
+      overflow: visible; /* allow popup to show outside */
     }
 
     .product:hover {
@@ -97,6 +97,8 @@
       font-weight: bold;
       margin-top: 1rem;
       transition: background-color 0.3s ease;
+      position: relative;
+      z-index: 2;
     }
 
     .buy-btn:hover,
@@ -107,6 +109,7 @@
     }
 
     .buy-popup {
+      position: absolute;
       display: none;
       background: #222;
       border: 2px solid #9b59b6;
@@ -114,13 +117,14 @@
       border-radius: 10px;
       font-weight: bold;
       color: #9b59b6;
-      animation: fadeIn 0.3s ease forwards;
-      position: absolute;
-      width: calc(100% - 2rem);
-      left: 1rem;
-      top: 70%;
-      z-index: 10;
       box-sizing: border-box;
+      z-index: 10;
+      width: auto;
+      max-width: 90%;
+      animation: fadeIn 0.3s ease forwards;
+      left: 50%;
+      transform: translateX(-50%);
+      /* top will be set dynamically in JS */
     }
 
     @keyframes fadeIn {
@@ -231,7 +235,7 @@
 </footer>
 
 <script>
-  // Toggle visibility of the buy-popup for the clicked product
+  // Toggle visibility of the buy-popup for the clicked product and position it below the button
   function togglePopup(button) {
     const product = button.closest('.product');
     const popup = product.querySelector('.buy-popup');
@@ -241,15 +245,23 @@
       if (p !== popup) p.style.display = 'none';
     });
 
-    // Toggle this popup
     if (popup.style.display === 'block') {
       popup.style.display = 'none';
     } else {
+      // Position popup directly below button
+      const buttonRect = button.getBoundingClientRect();
+      const productRect = product.getBoundingClientRect();
+      const topPosition = button.offsetTop + button.offsetHeight + 8; // 8px gap
+
+      popup.style.top = topPosition + 'px';
+      popup.style.left = '50%';
+      popup.style.transform = 'translateX(-50%)';
+
       popup.style.display = 'block';
     }
   }
 
-  // Optional: Close popups if clicking outside
+  // Close popups if clicking outside any product
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.product')) {
       document.querySelectorAll('.buy-popup').forEach(p => {
