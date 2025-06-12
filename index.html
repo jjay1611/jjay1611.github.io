@@ -118,9 +118,15 @@
       color: #9b59b6;
       animation: fadeIn 0.3s ease forwards;
       position: absolute;
-      width: 200px;
-      z-index: 10;
+      width: 220px;
+      z-index: 30;
       box-sizing: border-box;
+      top: 100%; /* Start just below the button */
+      left: 50%; /* Start at horizontal center */
+      transform: translateX(-50%);
+      margin-top: 0.4rem;
+      box-shadow: 0 4px 10px rgba(155, 89, 182, 0.6);
+      text-align: left;
     }
 
     @keyframes fadeIn {
@@ -234,13 +240,28 @@
     const product = button.closest('.product');
     const popup = product.querySelector('.buy-popup');
 
-    // Hide other popups
+    // Hide any other open popups
     document.querySelectorAll('.buy-popup').forEach(p => {
       if (p !== popup) p.style.display = 'none';
     });
 
+    // Toggle this popup
     if (popup.style.display === 'block') {
       popup.style.display = 'none';
     } else {
-      // Show popup and align under button center
-     
+      popup.style.display = 'block';
+    }
+  }
+
+  // Close popups if clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.product')) {
+      document.querySelectorAll('.buy-popup').forEach(p => {
+        p.style.display = 'none';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
