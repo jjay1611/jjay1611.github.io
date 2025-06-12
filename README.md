@@ -9,32 +9,24 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #fff;
-      color: #000;
+      background: #000;
+      color: #fff;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
     header {
-      background: #fff;
-      color: #000;
+      background: #000;
+      color: #fff;
       text-align: center;
       padding: 1.5rem 1rem;
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid #fff;
     }
 
-    header h1 {
-      margin: 0;
-      font-weight: 900;
-      letter-spacing: 2px;
-    }
-
+    header h1,
     header p {
-      margin: 0.4rem 0 0;
-      font-size: 1.1rem;
-      font-style: italic;
-      color: #000;
+      color: #fff;
     }
 
     .products {
@@ -47,68 +39,63 @@
     }
 
     .product {
-      background: #fff;
+      background: #000;
       border-radius: 12px;
       padding: 1rem;
       width: 260px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(255,255,255,0.1);
       text-align: center;
       transition: transform 0.2s ease;
-      border: 1px solid #000;
+      border: 1px solid #fff;
+      color: #fff;
     }
 
     .product:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 20px rgba(255,255,255,0.2);
     }
 
-    .product h3 {
-      margin: 0 0 0.4rem 0;
-      color: #000;
-    }
-
-    .product p {
-      margin: 0.3rem 0;
-      font-weight: 600;
-      color: #000;
+    .product h3,
+    .product p,
+    .product strong {
+      color: #fff;
     }
 
     .buy-btn {
-      background: #000;
-      color: #fff;
+      background: #fff;
+      color: #000;
       border: none;
       padding: 0.6rem 1.4rem;
       cursor: pointer;
       border-radius: 30px;
       font-weight: bold;
       margin-top: 1rem;
-      box-shadow: none;
       transition: background-color 0.3s ease;
     }
 
     .buy-btn:hover {
-      background: #333;
-      color: #fff;
+      background: #ccc;
+      color: #000;
     }
 
     .buy-popup {
       display: none;
-      background: #fff;
-      border: 2px solid #000;
+      background: #111;
+      border: 2px solid #fff;
       padding: 1rem;
       margin-top: 1rem;
       border-radius: 10px;
       font-weight: bold;
-      color: #000;
+      color: #fff;
     }
 
     footer {
-      background: #fff;
-      color: #000;
+      background: #000;
+      color: #fff;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      border-top: 1px solid #000;
+      border-top: 1px solid #fff;
       user-select: none;
     }
   </style>
@@ -118,7 +105,7 @@
 <header>
   <h1>JJ Store</h1>
   <p>Affordable streetwear – Pay with Cash App</p>
-  <p>Add me on snapchat for purchasing details-jamesjay1116</p>
+  <p>Add me on snapchat for purchasing details - jamesjay1116</p>
 </header>
 
 <div class="products">
