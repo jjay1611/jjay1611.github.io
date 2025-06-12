@@ -22,7 +22,6 @@
       color: #000;
       text-align: center;
       padding: 1.5rem 1rem;
-      box-shadow: none;
       border-bottom: 1px solid #000;
     }
 
@@ -110,7 +109,6 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      box-shadow: none;
       border-top: 1px solid #000;
       user-select: none;
     }
@@ -169,16 +167,6 @@
     <h3>Shorts</h3>
     <p><strong>Price:</strong> $20</p>
     <p>Perfect for summer days.</p>
-    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-    <div class="buy-popup">
-      <p><strong>Cash App:</strong> $jamesjay1611</p>
-    </div>
-  </div>
-
-  <div class="product">
-    <h3>Shoes</h3>
-    <p><strong>Price:</strong> $50</p>
-    <p>Fresh kicks for any occasion.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
