@@ -72,7 +72,7 @@
       border: 1px solid #9b59b6;
       color: #9b59b6;
       position: relative;
-      overflow: hidden;
+      overflow: visible; /* changed from hidden to visible to show popup outside */
     }
 
     .product:hover {
@@ -118,14 +118,15 @@
       position: absolute;
       width: calc(100% - 2rem);
       left: 1rem;
-      top: 70%;
+      top: 50%;
+      transform: translateY(-50%);
       z-index: 10;
       box-sizing: border-box;
     }
 
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(-10px);}
-      to {opacity: 1; transform: translateY(0);}
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
 
     footer {
@@ -174,16 +175,11 @@
     <p>Cozy and stylish.</p>
     <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for hoodies">Buy Now</button>
     <div class="buy-popup">
-      <div style="display:flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-        <div style="text-align:center;">
-          <p><strong>Cash App:</strong> $jamesjay1611</p>
-          <img src="https://i.imgur.com/f85bwVe.png" alt="Cash App QR code" style="width:120px; height:120px;" />
-        </div>
-        <div style="text-align:center; margin-top: 1rem;">
-          <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/35" target="_blank" style="color:#9b59b6;">@jamesjay520</a></p>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.paypal.me/jamesjay710/35" alt="PayPal QR code" style="width:120px; height:120px;" />
-        </div>
-      </div>
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+      <p><strong>PayPal:</strong></p>
+      <a href="https://www.paypal.me/jamesjay710/35" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
+      <br />
+      <img src="https://i.imgur.com/f85bwVe.png" alt="PayPal QR Code" style="width:120px; margin-top:0.5rem; border-radius:8px; box-shadow: 0 0 8px #9b59b6;" />
     </div>
   </div>
 
@@ -193,16 +189,11 @@
     <p>Casual wear for everyday use.</p>
     <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for shirts">Buy Now</button>
     <div class="buy-popup">
-      <div style="display:flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-        <div style="text-align:center;">
-          <p><strong>Cash App:</strong> $jamesjay1611</p>
-          <img src="https://i.imgur.com/f85bwVe.png" alt="Cash App QR code" style="width:120px; height:120px;" />
-        </div>
-        <div style="text-align:center; margin-top: 1rem;">
-          <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/20" target="_blank" style="color:#9b59b6;">@jamesjay520</a></p>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.paypal.me/jamesjay710/20" alt="PayPal QR code" style="width:120px; height:120px;" />
-        </div>
-      </div>
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+      <p><strong>PayPal:</strong></p>
+      <a href="https://www.paypal.me/jamesjay710/20" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
+      <br />
+      <img src="https://i.imgur.com/f85bwVe.png" alt="PayPal QR Code" style="width:120px; margin-top:0.5rem; border-radius:8px; box-shadow: 0 0 8px #9b59b6;" />
     </div>
   </div>
 
@@ -212,16 +203,11 @@
     <p>Comfortable and versatile.</p>
     <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for long sleeve shirts">Buy Now</button>
     <div class="buy-popup">
-      <div style="display:flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-        <div style="text-align:center;">
-          <p><strong>Cash App:</strong> $jamesjay1611</p>
-          <img src="https://i.imgur.com/f85bwVe.png" alt="Cash App QR code" style="width:120px; height:120px;" />
-        </div>
-        <div style="text-align:center; margin-top: 1rem;">
-          <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/25" target="_blank" style="color:#9b59b6;">@jamesjay520</a></p>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.paypal.me/jamesjay710/25" alt="PayPal QR code" style="width:120px; height:120px;" />
-        </div>
-      </div>
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+      <p><strong>PayPal:</strong></p>
+      <a href="https://www.paypal.me/jamesjay710/25" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
+      <br />
+      <img src="https://i.imgur.com/f85bwVe.png" alt="PayPal QR Code" style="width:120px; margin-top:0.5rem; border-radius:8px; box-shadow: 0 0 8px #9b59b6;" />
     </div>
   </div>
 
@@ -231,16 +217,11 @@
     <p>Relaxed fit for everyday comfort.</p>
     <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for sweatpants">Buy Now</button>
     <div class="buy-popup">
-      <div style="display:flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-        <div style="text-align:center;">
-          <p><strong>Cash App:</strong> $jamesjay1611</p>
-          <img src="https://i.imgur.com/f85bwVe.png" alt="Cash App QR code" style="width:120px; height:120px;" />
-        </div>
-        <div style="text-align:center; margin-top: 1rem;">
-          <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">@jamesjay520</a></p>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.paypal.me/jamesjay710/30" alt="PayPal QR code" style="width:120px; height:120px;" />
-        </div>
-      </div>
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+      <p><strong>PayPal:</strong></p>
+      <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
+      <br />
+      <img src="https://i.imgur.com/f85bwVe.png" alt="PayPal QR Code" style="width:120px; margin-top:0.5rem; border-radius:8px; box-shadow: 0 0 8px #9b59b6;" />
     </div>
   </div>
 
@@ -250,41 +231,33 @@
     <p>Breathable and perfect for warm weather.</p>
     <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for shorts">Buy Now</button>
     <div class="buy-popup">
-      <div style="display:flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-        <div style="text-align:center;">
-          <p><strong>Cash App:</strong> $jamesjay1611</p>
-          <img src="https://i.imgur.com/f85bwVe.png" alt="Cash App QR code" style="width:120px; height:120px;" />
-        </div>
-        <div style="text-align:center; margin-top: 1rem;">
-          <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">@jamesjay520</a></p>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.paypal.me/jamesjay710/30" alt="PayPal QR code" style="width:120px; height:120px;" />
-        </div>
-      </div>
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+      <p><strong>PayPal:</strong></p>
+      <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
+      <br />
+      <img src="https://i.imgur.com/f85bwVe.png" alt="PayPal QR Code" style="width:120px; margin-top:0.5rem; border-radius:8px; box-shadow: 0 0 8px #9b59b6;" />
     </div>
   </div>
 
 </main>
 
 <footer>
-  &copy; 2025 JJ Store — All rights reserved
+  &copy; 2025 JJ Store. All rights reserved.
 </footer>
 
 <script>
   function togglePopup(button) {
-    const popup = button.nextElementSibling;
-    const allPopups = document.querySelectorAll('.buy-popup');
-    allPopups.forEach(p => {
-      if (p !== popup) p.style.display = 'none';
+    // Close any other open popups
+    document.querySelectorAll('.buy-popup').forEach(popup => {
+      if (popup !== button.nextElementSibling) {
+        popup.style.display = 'none';
+      }
     });
-    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-  }
 
-  // Optional: close popup if clicked outside
-  document.addEventListener('click', function(event) {
-    if (!event.target.closest('.product')) {
-      document.querySelectorAll('.buy-popup').forEach(p => p.style.display = 'none');
-    }
-  });
+    // Toggle current popup visibility
+    const popup = button.nextElementSibling;
+    popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+  }
 </script>
 
 </body>
