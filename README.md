@@ -117,7 +117,8 @@
 
 <header>
   <h1>JJ Store</h1>
-  <p>Affordable streetwear – Pay with Cash App</p>
+  <p>Affordable streetwear – Pay with Cash App
+  Add me on snap for purchasing details-jamesjay1116</p>
 </header>
 
 <div class="products">
