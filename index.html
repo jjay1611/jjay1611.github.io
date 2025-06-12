@@ -54,8 +54,8 @@
     .product {
       background: #111;
       border-radius: 12px;
-      padding: 1rem;
-      width: 260px;
+      padding: 0.8rem;  /* reduced padding */
+      width: 180px;     /* smaller width */
       box-shadow: 0 5px 15px rgba(155, 89, 182, 0.5);
       text-align: center;
       transition: transform 0.2s ease;
@@ -191,6 +191,16 @@
     <h3>Custom Made Sweatpants</h3>
     <p><strong>Price:</strong> $30</p>
     <p>Relaxed fit for everyday comfort.</p>
+    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
+    <div class="buy-popup">
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+    </div>
+  </div>
+
+  <div class="product">
+    <h3>Custom Made Shorts</h3>
+    <p><strong>Price:</strong> $25</p>
+    <p>Breathable and perfect for warm weather.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
