@@ -71,8 +71,8 @@
       transition: transform 0.2s ease;
       border: 1px solid #9b59b6;
       color: #9b59b6;
-      position: relative; /* Important for popup positioning */
-      overflow: visible;  /* Allow popup outside boundaries */
+      position: relative;
+      overflow: visible; /* changed to visible so popup isn't cut off */
     }
 
     .product:hover {
@@ -97,8 +97,8 @@
       font-weight: bold;
       margin-top: 1rem;
       transition: background-color 0.3s ease;
-      position: relative; /* keep stacking context */
-      z-index: 5;
+      position: relative; /* make sure button is reference for popup */
+      z-index: 1;
     }
 
     .buy-btn:hover,
@@ -114,7 +114,7 @@
       top: 100%;      /* right below the button */
       left: 50%;      /* center horizontally relative to product */
       transform: translateX(-50%);
-      margin-top: 6px; /* small gap */
+      margin-top: 2px; /* smaller gap to raise the popup */
       background: #222;
       border: 2px solid #9b59b6;
       padding: 1rem;
@@ -236,6 +236,7 @@
 </footer>
 
 <script>
+  // Toggle visibility of the buy-popup for the clicked product
   function togglePopup(button) {
     const product = button.closest('.product');
     const popup = product.querySelector('.buy-popup');
@@ -246,10 +247,14 @@
     });
 
     // Toggle this popup
-    popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+    if (popup.style.display === 'block') {
+      popup.style.display = 'none';
+    } else {
+      popup.style.display = 'block';
+    }
   }
 
-  // Close popups if clicking outside
+  // Optional: Close popups if clicking outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.product')) {
       document.querySelectorAll('.buy-popup').forEach(p => {
