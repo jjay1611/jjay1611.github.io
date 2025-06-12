@@ -72,7 +72,7 @@
       border: 1px solid #9b59b6;
       color: #9b59b6;
       position: relative;
-      overflow: visible; /* changed so popup can show outside if needed */
+      overflow: visible; /* allow popup to be visible */
     }
 
     .product:hover {
@@ -97,7 +97,7 @@
       font-weight: bold;
       margin-top: 1rem;
       transition: background-color 0.3s ease;
-      position: relative; /* for popup alignment */
+      position: relative;
       z-index: 1;
     }
 
@@ -118,14 +118,10 @@
       color: #9b59b6;
       animation: fadeIn 0.3s ease forwards;
       position: absolute;
-      top: calc(100% - 10px);  /* raised 10px higher */
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
+      width: 200px;
       box-sizing: border-box;
-      width: calc(100% + 40px);
-      margin-top: 0.4rem;
-      box-shadow: 0 0 12px rgba(155, 89, 182, 0.9);
+      z-index: 10;
+      /* Removed fixed left and top here to be set dynamically */
     }
 
     @keyframes fadeIn {
@@ -246,15 +242,24 @@
       if (p !== popup) p.style.display = 'none';
     });
 
-    // Toggle this popup
     if (popup.style.display === 'block') {
       popup.style.display = 'none';
-    } else {
-      popup.style.display = 'block';
+      return;
     }
+
+    // Show popup first to get correct dimensions
+    popup.style.display = 'block';
+
+    // Calculate position: just below button, horizontally centered
+    const top = button.offsetTop + button.offsetHeight + 2; // 2px gap to raise it higher
+    const left = button.offsetLeft + button.offsetWidth / 2;
+
+    popup.style.top = top + 'px';
+    popup.style.left = left + 'px';
+    popup.style.transform = 'translateX(-50%)';
   }
 
-  // Optional: Close popups if clicking outside
+  // Close popups if clicking outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.product')) {
       document.querySelectorAll('.buy-popup').forEach(p => {
