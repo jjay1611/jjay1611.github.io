@@ -9,24 +9,24 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #000;
-      color: #fff;
+      background: #fff;
+      color: #000;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
     header {
-      background: #000;
-      color: #fff;
+      background: #fff;
+      color: #000;
       text-align: center;
       padding: 1.5rem 1rem;
-      border-bottom: 1px solid #fff;
+      border-bottom: 1px solid #000;
     }
 
     header h1,
     header p {
-      color: #fff;
+      color: #000;
     }
 
     .products {
@@ -39,31 +39,31 @@
     }
 
     .product {
-      background: #000;
+      background: #fff;
       border-radius: 12px;
       padding: 1rem;
       width: 260px;
-      box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       text-align: center;
       transition: transform 0.2s ease;
-      border: 1px solid #fff;
-      color: #fff;
+      border: 1px solid #000;
+      color: #000;
     }
 
     .product:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .product h3,
     .product p,
     .product strong {
-      color: #fff;
+      color: #000;
     }
 
     .buy-btn {
-      background: #fff;
-      color: #000;
+      background: #000;
+      color: #fff;
       border: none;
       padding: 0.6rem 1.4rem;
       cursor: pointer;
@@ -74,28 +74,27 @@
     }
 
     .buy-btn:hover {
-      background: #ccc;
-      color: #000;
+      background: #333;
     }
 
     .buy-popup {
       display: none;
-      background: #111;
-      border: 2px solid #fff;
+      background: #f9f9f9;
+      border: 2px solid #000;
       padding: 1rem;
       margin-top: 1rem;
       border-radius: 10px;
       font-weight: bold;
-      color: #fff;
+      color: #000;
     }
 
     footer {
-      background: #000;
-      color: #fff;
+      background: #fff;
+      color: #000;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      border-top: 1px solid #fff;
+      border-top: 1px solid #000;
       user-select: none;
     }
   </style>
