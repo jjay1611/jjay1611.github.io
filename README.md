@@ -77,7 +77,7 @@
 
 <header>
   <h1>JJ Store</h1>
-  <p>Affordable streetwear – Pay with Cash App or Venmo</p>
+  <p>Affordable streetwear – Pay with Cash App</p>
 </header>
 
 <div class="products">
@@ -88,7 +88,6 @@
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
-      <p><strong>Venmo:</strong> @JJ_Store</p>
     </div>
   </div>
 
@@ -99,7 +98,6 @@
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
-      <p><strong>Venmo:</strong> @JJ_Store</p>
     </div>
   </div>
 
@@ -110,7 +108,6 @@
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
-      <p><strong>Venmo:</strong> @JJ_Store</p>
     </div>
   </div>
 
@@ -121,7 +118,6 @@
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
-      <p><strong>Venmo:</strong> @JJ_Store</p>
     </div>
   </div>
 
@@ -132,7 +128,6 @@
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
-      <p><strong>Venmo:</strong> @JJ_Store</p>
     </div>
   </div>
 
@@ -143,7 +138,6 @@
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
-      <p><strong>Venmo:</strong> @JJ_Store</p>
     </div>
   </div>
 </div>
