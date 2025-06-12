@@ -124,7 +124,7 @@
 
   <div class="product">
     <h3>Custom Made Hoodies</h3>
-    <p><strong>Price:</strong> $40</p>
+    <p><strong>Price:</strong> $35</p>
     <p>Cozy and stylish.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
