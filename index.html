@@ -219,4 +219,45 @@
     <p>Breathable and perfect for warm weather.</p>
     <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for shorts">Buy Now</button>
     <div class="buy-popup">
-      <p><
+      <p><strong>Cash App:</strong> $jamesjay1611</p>
+      <p><strong>PayPal:</strong> <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">@jamesjay520</a></p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2025 JJ Store. All rights reserved.
+</footer>
+
+<script>
+  // Toggle visibility of the buy-popup for the clicked product
+  function togglePopup(button) {
+    const product = button.closest('.product');
+    const popup = product.querySelector('.buy-popup');
+
+    // Hide any other open popups
+    document.querySelectorAll('.buy-popup').forEach(p => {
+      if (p !== popup) p.style.display = 'none';
+    });
+
+    // Toggle this popup
+    if (popup.style.display === 'block') {
+      popup.style.display = 'none';
+    } else {
+      popup.style.display = 'block';
+    }
+  }
+
+  // Optional: Close popups if clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.product')) {
+      document.querySelectorAll('.buy-popup').forEach(p => {
+        p.style.display = 'none';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
