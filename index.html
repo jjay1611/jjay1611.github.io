@@ -71,8 +71,8 @@
       transition: transform 0.2s ease;
       border: 1px solid #9b59b6;
       color: #9b59b6;
-      position: relative; /* Important for absolute popup */
-      overflow: visible; /* allow popup to show outside */
+      position: relative;
+      overflow: visible;
     }
 
     .product:hover {
@@ -98,7 +98,7 @@
       margin-top: 1rem;
       transition: background-color 0.3s ease;
       position: relative;
-      z-index: 2;
+      z-index: 20;
     }
 
     .buy-btn:hover,
@@ -109,7 +109,6 @@
     }
 
     .buy-popup {
-      position: absolute;
       display: none;
       background: #222;
       border: 2px solid #9b59b6;
@@ -117,14 +116,11 @@
       border-radius: 10px;
       font-weight: bold;
       color: #9b59b6;
-      box-sizing: border-box;
-      z-index: 10;
-      width: auto;
-      max-width: 90%;
       animation: fadeIn 0.3s ease forwards;
-      left: 50%;
-      transform: translateX(-50%);
-      /* top will be set dynamically in JS */
+      position: absolute;
+      width: 200px;
+      z-index: 10;
+      box-sizing: border-box;
     }
 
     @keyframes fadeIn {
@@ -172,7 +168,6 @@
 
 <main class="products">
 
-  <!-- Product Template -->
   <div class="product">
     <h3>Custom Made Hoodies</h3>
     <p><strong>Price:</strong> $35</p>
@@ -235,12 +230,11 @@
 </footer>
 
 <script>
-  // Toggle visibility of the buy-popup for the clicked product and position it below the button
   function togglePopup(button) {
     const product = button.closest('.product');
     const popup = product.querySelector('.buy-popup');
 
-    // Hide any other open popups
+    // Hide other popups
     document.querySelectorAll('.buy-popup').forEach(p => {
       if (p !== popup) p.style.display = 'none';
     });
@@ -248,28 +242,5 @@
     if (popup.style.display === 'block') {
       popup.style.display = 'none';
     } else {
-      // Position popup directly below button
-      const buttonRect = button.getBoundingClientRect();
-      const productRect = product.getBoundingClientRect();
-      const topPosition = button.offsetTop + button.offsetHeight + 8; // 8px gap
-
-      popup.style.top = topPosition + 'px';
-      popup.style.left = '50%';
-      popup.style.transform = 'translateX(-50%)';
-
-      popup.style.display = 'block';
-    }
-  }
-
-  // Close popups if clicking outside any product
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.product')) {
-      document.querySelectorAll('.buy-popup').forEach(p => {
-        p.style.display = 'none';
-      });
-    }
-  });
-</script>
-
-</body>
-</html>
+      // Show popup and align under button center
+     
