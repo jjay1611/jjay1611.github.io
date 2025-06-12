@@ -71,8 +71,8 @@
       transition: transform 0.2s ease;
       border: 1px solid #9b59b6;
       color: #9b59b6;
-      position: relative;
-      overflow: visible;
+      position: relative; /* Important for popup positioning */
+      overflow: visible;  /* Allow popup outside boundaries */
     }
 
     .product:hover {
@@ -97,8 +97,8 @@
       font-weight: bold;
       margin-top: 1rem;
       transition: background-color 0.3s ease;
-      position: relative;
-      z-index: 20;
+      position: relative; /* keep stacking context */
+      z-index: 5;
     }
 
     .buy-btn:hover,
@@ -110,21 +110,20 @@
 
     .buy-popup {
       display: none;
+      position: absolute;
+      top: 100%;      /* right below the button */
+      left: 50%;      /* center horizontally relative to product */
+      transform: translateX(-50%);
+      margin-top: 6px; /* small gap */
       background: #222;
       border: 2px solid #9b59b6;
       padding: 1rem;
       border-radius: 10px;
       font-weight: bold;
       color: #9b59b6;
-      animation: fadeIn 0.3s ease forwards;
-      position: absolute;
       width: 220px;
-      z-index: 30;
       box-sizing: border-box;
-      top: 100%; /* Start just below the button */
-      left: 50%; /* Start at horizontal center */
-      transform: translateX(-50%);
-      margin-top: 0.4rem;
+      z-index: 10;
       box-shadow: 0 4px 10px rgba(155, 89, 182, 0.6);
       text-align: left;
     }
@@ -174,6 +173,7 @@
 
 <main class="products">
 
+  <!-- Product Template -->
   <div class="product">
     <h3>Custom Made Hoodies</h3>
     <p><strong>Price:</strong> $35</p>
@@ -246,11 +246,7 @@
     });
 
     // Toggle this popup
-    if (popup.style.display === 'block') {
-      popup.style.display = 'none';
-    } else {
-      popup.style.display = 'block';
-    }
+    popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
   }
 
   // Close popups if clicking outside
