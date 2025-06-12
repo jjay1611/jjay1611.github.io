@@ -134,7 +134,7 @@
 
   <div class="product">
     <h3>Custom Made Shirts</h3>
-    <p><strong>Price:</strong> $25</p>
+    <p><strong>Price:</strong> $20</p>
     <p>Casual wear for everyday use.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
@@ -144,7 +144,7 @@
 
   <div class="product">
     <h3>Custom Made Long Sleeve Shirts</h3>
-    <p><strong>Price:</strong> $30</p>
+    <p><strong>Price:</strong> $25</p>
     <p>Comfortable and versatile.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
@@ -154,18 +154,8 @@
 
   <div class="product">
     <h3>Custom Made Sweatpants</h3>
-    <p><strong>Price:</strong> $35</p>
+    <p><strong>Price:</strong> $30</p>
     <p>Relaxed fit for everyday comfort.</p>
-    <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
-    <div class="buy-popup">
-      <p><strong>Cash App:</strong> $jamesjay1611</p>
-    </div>
-  </div>
-
-  <div class="product">
-    <h3>Custom Made Shorts</h3>
-    <p><strong>Price:</strong> $20</p>
-    <p>Perfect for summer days.</p>
     <button class="buy-btn" onclick="togglePopup(this)">Buy Now</button>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
