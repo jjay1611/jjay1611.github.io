@@ -72,7 +72,7 @@
       border: 1px solid #9b59b6;
       color: #9b59b6;
       position: relative;
-      overflow: visible; /* changed from hidden to visible to show popup outside */
+      overflow: visible;
     }
 
     .product:hover {
@@ -118,8 +118,8 @@
       position: absolute;
       width: calc(100% - 2rem);
       left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 100%;
+      transform: translateY(10px);
       z-index: 10;
       box-sizing: border-box;
     }
@@ -178,7 +178,6 @@
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
       <a href="https://www.paypal.me/jamesjay710/35" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
-      <br />
     </div>
   </div>
 
@@ -191,7 +190,6 @@
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
       <a href="https://www.paypal.me/jamesjay710/20" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
-      <br />
     </div>
   </div>
 
@@ -204,7 +202,6 @@
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
       <a href="https://www.paypal.me/jamesjay710/25" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
-      <br />
     </div>
   </div>
 
@@ -217,7 +214,6 @@
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
       <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
-      <br />
     </div>
   </div>
 
@@ -230,7 +226,6 @@
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
       <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
-      <br />
     </div>
   </div>
 
@@ -242,17 +237,28 @@
 
 <script>
   function togglePopup(button) {
-    // Close any other open popups
+    // Close other popups
     document.querySelectorAll('.buy-popup').forEach(popup => {
       if (popup !== button.nextElementSibling) {
         popup.style.display = 'none';
       }
     });
 
-    // Toggle current popup visibility
+    // Toggle the clicked one
     const popup = button.nextElementSibling;
     popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
   }
+
+  // Close popup when clicking outside any .product
+  document.addEventListener('click', function(event) {
+    // If the click was inside a product, do nothing
+    if (event.target.closest('.product')) return;
+
+    // Else close all popups
+    document.querySelectorAll('.buy-popup').forEach(popup => {
+      popup.style.display = 'none';
+    });
+  });
 </script>
 
 </body>
