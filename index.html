@@ -72,7 +72,7 @@
       border: 1px solid #9b59b6;
       color: #9b59b6;
       position: relative;
-      overflow: visible;
+      overflow: visible; /* so popup can overflow */
     }
 
     .product:hover {
@@ -118,8 +118,8 @@
       position: absolute;
       width: calc(100% - 2rem);
       left: 1rem;
-      top: 100%;
-      transform: translateY(10px);
+      top: 50%;               /* <-- original vertical alignment */
+      transform: translateY(-50%); /* <-- original vertical alignment */
       z-index: 10;
       box-sizing: border-box;
     }
@@ -178,6 +178,7 @@
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
       <a href="https://www.paypal.me/jamesjay710/35" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
+      <br />
     </div>
   </div>
 
@@ -190,6 +191,7 @@
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
       <a href="https://www.paypal.me/jamesjay710/20" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
+      <br />
     </div>
   </div>
 
@@ -202,6 +204,7 @@
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
       <a href="https://www.paypal.me/jamesjay710/25" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
+      <br />
     </div>
   </div>
 
@@ -214,6 +217,7 @@
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
       <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
+      <br />
     </div>
   </div>
 
@@ -226,6 +230,7 @@
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
       <a href="https://www.paypal.me/jamesjay710/30" target="_blank" style="color:#9b59b6;">@jamesjay520</a>
+      <br />
     </div>
   </div>
 
@@ -244,17 +249,14 @@
       }
     });
 
-    // Toggle the clicked one
+    // Toggle current popup
     const popup = button.nextElementSibling;
     popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
   }
 
-  // Close popup when clicking outside any .product
+  // Close popups when clicking outside
   document.addEventListener('click', function(event) {
-    // If the click was inside a product, do nothing
-    if (event.target.closest('.product')) return;
-
-    // Else close all popups
+    if (event.target.closest('.product')) return; // click inside product: do nothing
     document.querySelectorAll('.buy-popup').forEach(popup => {
       popup.style.display = 'none';
     });
