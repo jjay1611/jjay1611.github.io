@@ -66,6 +66,7 @@
       border-radius: 12px;
       padding: 0.8rem;
       width: 180px;
+      height: 230px; /* fixed height to keep consistent size */
       box-shadow: 0 5px 15px rgba(155, 89, 182, 0.5);
       text-align: center;
       transition: transform 0.2s ease;
@@ -73,6 +74,15 @@
       color: #9b59b6;
       position: relative;
       overflow: visible; /* so popup can overflow */
+      
+      display: flex;            /* added */
+      flex-direction: column;   /* added */
+      justify-content: flex-end; /* added to push content to bottom */
+    }
+
+    /* Wrap the text and button */
+    .product-content {
+      /* No extra styles needed, just a wrapper */
     }
 
     .product:hover {
@@ -118,8 +128,8 @@
       position: absolute;
       width: calc(100% - 2rem);
       left: 1rem;
-      top: 50%;               /* <-- original vertical alignment */
-      transform: translateY(-50%); /* <-- original vertical alignment */
+      top: 50%;
+      transform: translateY(-50%);
       z-index: 10;
       box-sizing: border-box;
     }
@@ -148,6 +158,7 @@
       .product {
         width: 100%;
         max-width: 300px;
+        height: auto; /* allow flexible height on small screens */
       }
 
       .header-img {
@@ -170,10 +181,12 @@
 <main class="products">
 
   <div class="product">
-    <h3>Custom Made Hoodies</h3>
-    <p><strong>Price:</strong> $35</p>
-    <p>Cozy and stylish.</p>
-    <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for hoodies">Buy Now</button>
+    <div class="product-content">
+      <h3>Custom Made Hoodies</h3>
+      <p><strong>Price:</strong> $35</p>
+      <p>Cozy and stylish.</p>
+      <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for hoodies">Buy Now</button>
+    </div>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
@@ -183,10 +196,12 @@
   </div>
 
   <div class="product">
-    <h3>Custom Made Shirts</h3>
-    <p><strong>Price:</strong> $20</p>
-    <p>Casual wear for everyday use.</p>
-    <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for shirts">Buy Now</button>
+    <div class="product-content">
+      <h3>Custom Made Shirts</h3>
+      <p><strong>Price:</strong> $20</p>
+      <p>Casual wear for everyday use.</p>
+      <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for shirts">Buy Now</button>
+    </div>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
@@ -196,10 +211,12 @@
   </div>
 
   <div class="product">
-    <h3>Custom Made Long Sleeve Shirts</h3>
-    <p><strong>Price:</strong> $25</p>
-    <p>Comfortable and versatile.</p>
-    <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for long sleeve shirts">Buy Now</button>
+    <div class="product-content">
+      <h3>Custom Made Long Sleeve Shirts</h3>
+      <p><strong>Price:</strong> $25</p>
+      <p>Comfortable and versatile.</p>
+      <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for long sleeve shirts">Buy Now</button>
+    </div>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
@@ -209,10 +226,12 @@
   </div>
 
   <div class="product">
-    <h3>Custom Made Sweatpants</h3>
-    <p><strong>Price:</strong> $30</p>
-    <p>Relaxed fit for everyday comfort.</p>
-    <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for sweatpants">Buy Now</button>
+    <div class="product-content">
+      <h3>Custom Made Sweatpants</h3>
+      <p><strong>Price:</strong> $30</p>
+      <p>Relaxed fit for everyday comfort.</p>
+      <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for sweatpants">Buy Now</button>
+    </div>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
@@ -222,10 +241,12 @@
   </div>
 
   <div class="product">
-    <h3>Custom Made Shorts</h3>
-    <p><strong>Price:</strong> $30</p>
-    <p>Breathable and perfect for warm weather.</p>
-    <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for shorts">Buy Now</button>
+    <div class="product-content">
+      <h3>Custom Made Shorts</h3>
+      <p><strong>Price:</strong> $30</p>
+      <p>Breathable and perfect for warm weather.</p>
+      <button class="buy-btn" onclick="togglePopup(this)" aria-label="Show payment options for shorts">Buy Now</button>
+    </div>
     <div class="buy-popup">
       <p><strong>Cash App:</strong> $jamesjay1611</p>
       <p><strong>PayPal:</strong></p>
