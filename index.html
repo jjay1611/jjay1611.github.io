@@ -73,6 +73,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      position: relative; /* Added this */
     }
 
     .product:hover {
@@ -118,8 +119,10 @@
       position: absolute;
       width: calc(100% - 2rem);
       left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
+      /* Removed top: 50%; */
+      /* Removed transform: translateY(-50%); */
+      top: auto;
+      transform: none;
       z-index: 10;
       box-sizing: border-box;
     }
@@ -260,4 +263,3 @@
 
 </body>
 </html>
-
