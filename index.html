@@ -6,7 +6,6 @@
   <title>JJ Store</title>
 
   <meta name="description" content="JJ Store – Affordable custom streetwear. Pay with Cash App or PayPal.">
-
   <meta property="og:title" content="JJ Store">
   <meta property="og:description" content="Affordable streetwear – Custom hoodies, shirts, and more.">
   <meta property="og:image" content="https://i.imgur.com/CIJQhue.png">
@@ -73,7 +72,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      position: relative; /* For popup positioning */
+      position: relative;
     }
 
     .product:hover {
@@ -125,6 +124,14 @@
       box-sizing: border-box;
     }
 
+    .product-img {
+      width: 100%;
+      max-height: 110px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
@@ -138,13 +145,6 @@
       font-size: 0.9rem;
       border-top: 1px solid #004aad;
       user-select: none;
-    }
-
-    .product-img {
-      width: 100%;
-      max-height: 110px;
-      object-fit: contain;
-      margin-bottom: 0.5rem;
     }
 
     @media (max-width: 600px) {
@@ -204,7 +204,7 @@
     </div>
   </div>
 
-  <!-- Product 3: Long Sleeve Shirts -->
+  <!-- Product 3 -->
   <div class="product">
     <img src="https://secure-cdn.logosoftwear.com/images_products2/51366/51366.zoom.jpg" alt="Custom Made Long Sleeve Shirts" class="product-img" />
     <h3>Custom Made Long Sleeve Shirts</h3>
@@ -218,7 +218,7 @@
     </div>
   </div>
 
-  <!-- Product 4: Sweatpants -->
+  <!-- Product 4 -->
   <div class="product">
     <img src="http://us.sunspel.com/cdn/shop/files/mtrs1518-gyaa-1.jpg?v=1739884049" alt="Custom Made Sweatpants" class="product-img" />
     <h3>Custom Made Sweatpants</h3>
